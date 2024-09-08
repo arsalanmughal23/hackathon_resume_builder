@@ -61,12 +61,12 @@ export type MainPageData = {
   certificateListData: CertificateDataType[]
 }
 
-const mainPageData: MainPageData = {
-  summaryData,
-  workExperienceListData,
-  educationListData,
-  certificateListData
-}
+// const mainPageData: MainPageData = {
+//   summaryData,
+//   workExperienceListData,
+//   educationListData,
+//   certificateListData
+// }
 
 export default function Home() {
   return (

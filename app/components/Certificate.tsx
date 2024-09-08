@@ -16,7 +16,7 @@ export default function Certificate({
             <div className="flex justify-between font-bold">
                 <div>{ data.title }</div>
                 <div className="text-primary flex gap-2">
-                    { moment(data.date).format('MMM YYYY') }
+                    { isDate(data.date) && moment(data.date).format('MMM YYYY') }
                 </div>
             </div>
             <div className="text-primary font-bold">{ data.orgnization }</div>
