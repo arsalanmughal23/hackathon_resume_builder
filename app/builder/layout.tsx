@@ -11,9 +11,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
-      <h2>Resume Builder Layout</h2>
-      {children}
-    </>
+    <div>
+      { children }
+    </div>
   );
 }
