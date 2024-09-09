@@ -1,18 +1,35 @@
+export const enum SimpleCardStyleEnum {
+    DEFAULT = "default",
+    STYLE1 = "style1",
+    STYLE2 = "style2"
+};
+
+const SimpleCardStyles = {
+    [SimpleCardStyleEnum.DEFAULT]: "",
+    [SimpleCardStyleEnum.STYLE1]: "border rounded-md bg-white p-4 drop-shadow-md",
+    [SimpleCardStyleEnum.STYLE2]: "border rounded-md bg-white p-4 drop-shadow-2xl",
+}
+
 export type SimpleCardType = {
     header?: React.ReactNode,
     children?: React.ReactNode,
     footer?: React.ReactNode,
+    className?: string,
+    style?: SimpleCardStyleEnum
 }
 
 export default function SimpleCard({
+    className,
+    style = SimpleCardStyleEnum.DEFAULT,
     header,
     children,
     footer,
 } : SimpleCardType)
 {
+    className = `${SimpleCardStyles[style]} ${(className ?? '')}`;
+
     return (
-        
-        <div className="form personalInfo grid gap-4 border rounded-md drop-shadow-2xl bg-white p-4">
+        <div className={`form grid gap-4 ${className}`}>
             { header && 
                 <div className="head border-b-2">
                     { header }
