@@ -12,19 +12,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="min-w-[220mm] min-h-[330mm] grid place-items-center bg-gray-400">
-      <h2 className="text-4xl font-bold text-light py-4">Resume Layout</h2>
+    <div className="w-[100vw] h-[100vh] overflow-hidden grid place-items-center bg-gray-400">
+      <h2 className="md:text-4xl text-3xl font-bold text-light pt-4">Resume Layout</h2>
 
       {/* A4 Size (210 x 297 mm) (793.70 x 1122.51 px) */}
-      <div
-        className="w-[210mm] h-[297mm] overflow-hidden rounded-md bg-white shadow-lg"
-      >
-        <div className="resume h-full flex">
-          <div className="w-1/3">
-            <Sidebar/>
-          </div>
-          <div className="w-2/3">
-            {children}
+      <div className="w-[95vw] h-[90vh] flex justify-center">
+        <div className="scrollStyle overflow-auto rounded-md pr-2">
+          <div
+            className="w-[210mm] h-[297mm] rounded-md bg-white shadow-lg"
+          >
+            <div className="resume flex">
+              <div className="w-1/3">
+                <Sidebar/>
+              </div>
+              <div className="w-2/3">
+                {children}
+              </div>
+            </div>
           </div>
         </div>
       </div>
