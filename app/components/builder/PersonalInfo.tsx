@@ -1,123 +1,89 @@
 import { EnvelopeIcon, LinkIcon, MapPinIcon, PhoneIcon, UserIcon } from "@heroicons/react/16/solid";
 import InputText from "@/app/components/ui/Input";
 import Button from "@/app/components/ui/Button";
+import InputGroup from "@/app/components/partial/InputGroup";
+import SimpleCard, { SimpleCardStyleEnum } from "../partial/SimpleCard";
 
 export default function PersonalInfo() 
 {
     return (
-        <div className="form personalInfo grid gap-4 drop-shadow-2xl bg-white p-4">
-          
-          <div className="head border-b-2">
-            <h2 className="text-2xl">Personal Information</h2>
-          </div>
+        <div className="grid gap-6">
 
-          <div className="body py-2">
+            {/* PERSONAL_INFORMATION */}
+            <SimpleCard
+                className="personalInfo"
+                header={<h2 className="text-2xl">Personal Information</h2>}
+                footer={<Button type="button"/>}
+            >
+                <div className="grid grid-rows-3 md:grid-cols-2 grid-cols-flow gap-4">
+                    {/* INPUT_USERNAME */}
+                    <InputGroup
+                        error="Invalid Username"
+                        icon={ <UserIcon className="w-5 h-5 text-primary"/> }>
 
-            <div className="grid grid-rows-3 grid-cols-2 gap-2">
-              {/* INPUT_USERNAME */}
-              <div>
-                <label className="relative block">
-                  <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                    <UserIcon className="w-5 h-5 text-primary"/>
-                  </span>
+                        <InputText
+                            name="username"
+                            placeholder="Username"
+                            className="pl-9"/>
+                    </InputGroup>
 
-                  <InputText
-                    name="username"
-                    placeholder="Username"
-                    className="pl-9"
-                  />
-                </label>
-              </div>
+                    {/* INPUT_EMAIL */}
+                    <InputGroup
+                        error="Invalid Email"
+                        icon={ <EnvelopeIcon className="w-5 h-5 text-primary"/> }>
 
-              {/* INPUT_EMAIL */}
-              <div>          
-                <label className="relative block">
-                  <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                    <EnvelopeIcon className="w-5 h-5 text-primary"/>
-                  </span>
+                        <InputText
+                            name="email"
+                            type="email"
+                            placeholder="Email"
+                            className="pl-9"/>
+                    </InputGroup>
 
-                  <InputText
-                    name="email"
-                    type="email"
-                    placeholder="Email"
-                    className="pl-9"
-                  />
+                    {/* INPUT_PHONE */}
+                    <InputGroup
+                        // error="Invalid Contact"
+                        icon={ <PhoneIcon className="w-5 h-5 text-primary"/> }>
 
-                </label>
-              </div>
+                        <InputText
+                            name="contact"
+                            placeholder="Contact"
+                            className="pl-9"/>
+                    </InputGroup>
 
-              {/* INPUT_PHONE */}
-              <div>
-                <label className="relative block">
-                  <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                    <PhoneIcon className="w-5 h-5 text-primary"/>
-                  </span>
+                    {/* INPUT_ADDRESS */}
+                    <InputGroup
+                        // error="Invalid Address"
+                        icon={ <MapPinIcon className="w-5 h-5 text-primary"/> }>
 
-                  <InputText
-                    name="contact"
-                    placeholder="Contact"
-                    className="pl-9"
-                  />
+                        <InputText
+                            name="address"
+                            placeholder="Address"
+                            className="pl-9"/>
+                    </InputGroup>
 
-                </label>
-              </div>
+                    {/* INPUT_LINKEDIN */}
+                    <InputGroup
+                        // error="Invalid Link"
+                        icon={ <LinkIcon className="w-5 h-5 text-primary"/> }>
 
-              {/* INPUT_ADDRESS */}
-              <div>          
-                <label className="relative block">
-                  <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                    <MapPinIcon className="w-5 h-5 text-primary"/>
-                  </span>
+                        <InputText
+                            name="linkedin"
+                            placeholder="Linked In"
+                            className="pl-9"/>
+                    </InputGroup>
 
-                  <InputText
-                    name="address"
-                    placeholder="Address"
-                    className="pl-9"
-                  />
+                    {/* INPUT_PORTFOLIO */}
+                    <InputGroup
+                        // error="Invalid Link"
+                        icon={ <LinkIcon className="w-5 h-5 text-primary"/> }>
 
-                </label>
-              </div>
-
-              {/* INPUT_LINKEDIN */}
-              <div>
-                <label className="relative block">
-                  <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                    <LinkIcon className="w-5 h-5 text-primary"/>
-                  </span>
-
-                  <InputText
-                    name="linkedin"
-                    placeholder="Linked In"
-                    className="pl-9"
-                  />
-
-                </label>
-              </div>
-
-              {/* INPUT_PORTFOLIO */}
-              <div>
-                <label className="relative block">
-                  <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                    <LinkIcon className="w-5 h-5 text-primary"/>
-                  </span>
-
-                  <InputText
-                    name="protfolio"
-                    placeholder="Portfolio"
-                    className="pl-9"
-                  />
-
-                </label>
-              </div>
-
-            </div>
-
-          </div>
-
-          <div className="foot border-t-2 pt-2">
-            <Button type="button"/>
-          </div>
-
-        </div>
+                        <InputText
+                            name="protfolio"
+                            placeholder="Portfolio"
+                            className="pl-9"/>
+                    </InputGroup>
+                </div>
+            </SimpleCard>
+        </div>        
     )
 }
