@@ -2,7 +2,7 @@ import { EnvelopeIcon, LinkIcon, MapPinIcon, PhoneIcon, UserIcon } from "@heroic
 import InputText from "@/app/components/ui/Input";
 import Button from "@/app/components/ui/Button";
 import InputGroup from "@/app/components/partial/InputGroup";
-import SimpleCard, { SimpleCardStyleEnum } from "../partial/SimpleCard";
+import SimpleCard from "../partial/SimpleCard";
 
 export default function PersonalInfo() 
 {
