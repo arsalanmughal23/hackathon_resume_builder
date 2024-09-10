@@ -38,7 +38,6 @@ export default function PersonalInfo()
 
         const personalInfo:PersonalInfoDataType = { username, email, contact, address, linkedIn, portfolio }
         store.dispatch(updatePersonalInfoData(personalInfo));
-
         router.push('/resume');
     };
 
@@ -53,7 +52,7 @@ export default function PersonalInfo()
                 footer={
                     <Button 
                         type="button"
-                        onClick={handleOnSubmit}
+                        onClickHandler={handleOnSubmit}
                         />
                 }
                 style={SimpleCardStyleEnum.STYLE2}

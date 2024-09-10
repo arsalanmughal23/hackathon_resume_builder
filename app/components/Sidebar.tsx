@@ -1,14 +1,28 @@
-import { EnvelopeIcon, LinkIcon, MapPinIcon, PhoneIcon } from "@heroicons/react/16/solid";
+"use client"
+
+import { EnvelopeIcon, GlobeAltIcon, LinkIcon, MapPinIcon, PhoneIcon } from "@heroicons/react/16/solid";
 import Link from "next/link";
 import Rating from "./Rating";
+import PersonalInfoDataType from "../interfaces/PersonalInfo";
+import { store } from "@/app/store";
 
 export default function Sidebar() 
 {
+    let appData = store.getState();
+    let { personalInfo } : {
+        personalInfo:PersonalInfoDataType
+    } = appData;
+
+    store.subscribe(() => {
+        appData = store.getState();
+        personalInfo = appData?.personalInfo;
+    });
+
     return (
-        <>        
+        <>
             {/* USER_NAME */}
             <div className="userName bg-primary text-light h-32 flex justify-center items-center rounded">
-                <h2 className="text-2xl">Arsalan</h2>
+                <h2 className="text-2xl">{ personalInfo?.username }</h2>
             </div>
 
             {/* PERSONAL_DETAILS */}
@@ -17,26 +31,32 @@ export default function Sidebar()
                 <ul className="detailList grid gap-2 mt-3">
                     <li className="listItem email flex flex-wrap gap-2">
                         <EnvelopeIcon className="h-6 w-6 text-pri-500"/>
-                        <Link href={"mailto:arsalanmughal@gmail.com"}>
-                            arsalanmughal@gmail.com
+                        <Link href={`mailto:${ personalInfo?.email }`}>
+                            { personalInfo?.email }
                         </Link>
                     </li>
                     <li className="listItem phone flex flex-wrap gap-2">
                         <PhoneIcon className="h-6 w-6 text-pri-500"/>
-                        <Link href={"tel:+923152929408"}>
-                            +92 3152929408
+                        <Link href={`tel:${ personalInfo?.contact }`}>
+                            { personalInfo?.contact }
                         </Link>
                     </li>
                     <li className="listItem address flex flex-wrap gap-2">
                         <MapPinIcon className="h-6 w-6 text-pri-500"/>
                         <Link href={"#"}>
-                            Karachi, Pakistan
+                            { personalInfo?.address }
                         </Link>
                     </li>
                     <li className="listItem linkedin flex flex-wrap gap-2">
                         <LinkIcon className="h-6 w-6 text-pri-500"/>
-                        <Link href={"https://www.linkedin.com/in/arsalan-mughal-671a8a179"}>
-                            arsalan-mughal-671a8a179
+                        <Link href={ personalInfo?.linkedIn ?? "#" }>
+                            { [...personalInfo?.linkedIn?.split('/') ?? []].pop() }
+                        </Link>
+                    </li>
+                    <li className="listItem portfolio flex flex-wrap gap-2">
+                        <GlobeAltIcon className="h-6 w-6 text-pri-500"/>
+                        <Link href={ personalInfo?.portfolio ?? "#" }>
+                            { [...personalInfo?.portfolio?.split('/') ?? []].pop() }
                         </Link>
                     </li>
                 </ul>
