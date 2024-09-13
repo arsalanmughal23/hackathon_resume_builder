@@ -52,7 +52,7 @@ export default function PersonalInfo()
                 footer={
                     <Button 
                         type="button"
-                        onClickHandler={handleOnSubmit}
+                        onClick={()=>handleOnSubmit()}
                         />
                 }
                 style={SimpleCardStyleEnum.STYLE2}
