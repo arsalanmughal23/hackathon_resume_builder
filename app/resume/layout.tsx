@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Sidebar from "../components/Sidebar";
-import Button from "../components/ui/Button";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Resume",
@@ -12,16 +12,16 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
   return (
     <div className="min-w-[220mm] min-h-[330mm] grid place-items-center bg-gray-400">
 
       <div className="w-[210mm] flex justify-around items-center pt-4">
         <h2 className="w-5/6 text-4xl font-bold text-light">Resume Layout</h2>
-        <Button
-          className="w-1/6 h-10 bg-primary text-white"
-          >
+        <Link href="/builder"
+          className="w-min border rounded-md py-2 px-4 text-white bg-primary shadow-sm focus:outline-none focus:border-primary-light focus:ring-primary-light focus:ring-1">
           Edit
-        </Button>
+        </Link>
       </div>
 
       {/* A4 Size (210 x 297 mm) (793.70 x 1122.51 px) */}
